@@ -17,3 +17,5 @@
          # This step installs the dependencies
          - name: Install dependencies
            run: npm ci
+            - name: Build
+              run: npm run build
