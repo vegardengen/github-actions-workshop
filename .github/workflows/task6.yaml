@@ -6,9 +6,9 @@ jobs:
   info:
     runs-on: ubuntu-latest
     outputs:
-      commit-sha: ${{ steps.commit-step.sha }}
-      branch-name: ${{ steps.branch-name.branch }}
-      commit-message: ${{ steps.commit-message.message }}
+      commit-sha: ${{ steps.commit-step.outputs.sha }}
+      branch-name: ${{ steps.branch-name.outputs.branch }}
+      commit-message: ${{ steps.commit-message.outputs.message }}
     steps:
       - uses: actions/checkout@v5
       - name: Get Commit SHA
