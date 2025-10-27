@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Print message
-        run: echo "Building commit ${{ needs.info.commit-sha }} on ${{ needs.info.branch-name }}"
+        run: echo "Building commit ${{ needs.info.outputs.commit-sha }} on ${{ needs.info.outputs.branch-name }}"
   summary:
     needs: 
       - info
@@ -48,5 +48,5 @@ jobs:
     steps:
       - name: Print summary
         run: |
-          echo "Summary: Built commit  ${{ needs.info.commit-sha }} on ${{ needs.info.branch-name }}"
-          echo "Commit message: ${{ needs.info.commit_message }}"
+          echo "Summary: Built commit  ${{ needs.info.outputs.commit-sha }} on ${{ needs.info.outputs.branch-name }}"
+          echo "Commit message: ${{ needs.info.outputs.commit-message }}"
