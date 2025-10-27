@@ -1,0 +1,33 @@
+{
+  "name": "github-actions-workshop",
+  "version": "1.0.0",
+  "description": "A hands-on workshop for learning GitHub Actions through practical exercises",
+  "scripts": {
+    "test": "node --test src/*.test.js",
+    "test:full-report": "c8 node src/*.test.js",
+    "test:short-report": "c8 node src/*.test.js 2>&1 | sed -n '/^--------------/,$p'",
+    "compare-coverage-reports": "node src/scripts/compare-coverage-reports.js",
+    "build": "node src/scripts/build.js",
+    "format": "npx prettier --write ."
+  },
+  "keywords": [
+    "github-actions",
+    "ci-cd",
+    "workshop",
+    "tutorial"
+  ],
+  "author": "Vegard Valvik and Sindre Bøyum",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "github-markdown-css": "^5.8.1",
+    "marked": "^16.4.1",
+    "marked-alert": "^2.1.2",
+    "marked-gfm-heading-id": "^4.1.2",
+    "puppeteer": "^24.26.0",
+    "react": "18.0.0"
+  },
+  "devDependencies": {
+    "c8": "^10.1.3"
+  }
+}
