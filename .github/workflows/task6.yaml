@@ -6,26 +6,26 @@ jobs:
   info:
     runs-on: ubuntu-latest
     outputs:
-      commit_sha: ${{ steps.commit_step.commit_sha }}
-      branch_name: ${{ steps.branch_name.branch_name }}
-      commit_message: ${{ steps.commit_message.commit_message }}
+      commit-sha: ${{ steps.commit-step.sha }}
+      branch-name: ${{ steps.branch-name.branch }}
+      commit-message: ${{ steps.commit-message.message }}
     steps:
       - uses: actions/checkout@v5
       - name: Get Commit SHA
-        id: commit_step
+        id: commit-step
 	run: |
           SHA=$(git rev-parse --short HEAD)
-          echo "commit_sha=$SHA >> $GITHUB_OUTPUT"
+          echo "sha=$SHA >> $GITHUB_OUTPUT"
       - name: Get branch name
-        id: branch_name
+        id: branch-name
         run: |
           BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-          echo "branch_name=$BRANCH_NAME >> $OUTPUT"
+          echo "branch=$BRANCH_NAME >> $OUTPUT"
       - name: Commit message
-        id: commit_message
+        id: commit-message
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          echo "commit_message=$COMMIT_MESSAGE >> $GITHUB_OUTPUT"
+          echo "message=$COMMIT_MESSAGE >> $GITHUB_OUTPUT"
        
 
   build:
