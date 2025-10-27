@@ -20,7 +20,7 @@ jobs:
         id: branch-name
         run: |
           BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-          echo "branch=$BRANCH_NAME >> $OUTPUT"
+          echo "branch=$BRANCH_NAME >> $GITHUB_OUTPUT"
       - name: Commit message
         id: commit-message
         run: |
